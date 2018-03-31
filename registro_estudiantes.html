@@ -16,9 +16,9 @@
 	</div>
 	<div id="botones" class="tab">
 		<button id="btn1" class="tabcont" onClick="openTab(event, 'tab1'); mostrarTodo(estudiantes)">Mostrar todo</button>
-		<button id="btn2" class="tabcont" onClick="openTab(event, 'tab2')">Promedio total</button>
-		<button id="btn3" class="tabcont" onClick="openTab(event, 'tab3')">Mayor nota</button>
-		<button id="btn4" class="tabcont" onClick="openTab(event, 'tab4')">Menor nota</button>
+		<button id="btn2" class="tabcont" onClick="openTab(event, 'tab2'); promedioTotal()">Promedio total</button>
+		<button id="btn3" class="tabcont" onClick="openTab(event, 'tab3'); mayorNota()">Mayor nota</button>
+		<button id="btn4" class="tabcont" onClick="openTab(event, 'tab4'); menorNota()">Menor nota</button>
 	</div>
 	<div id="tab1" class="tabcontent">
 		<h2>Todos los datos</h2>
@@ -116,14 +116,26 @@
 	]};
 	
 	//Función que muestra todo
-	function mostrarTodo(json){
+	function mostrarTodo(json){ //función con parámetro json a sustituir
 		var texto='';
 		var i;
 		for (i=0; i<json.estudiantes.length; i++){
-			texto+='<tr>'+'<td>'+json.estudiantes[i].código+'</td>'+'<td>'+json.estudiantes[i].nombre+'</td>'+'<td>'+json.estudiantes[i].nota+'</td>'+'</tr>';
+			texto+='<tr>'+'<td>'+json.estudiantes[i].código+'</td>'+'<td>'+json.estudiantes[i].nombre+'</td>'+'<td>'+json.estudiantes[i].nota+'</td>'+'</tr>'; //Ciclo que imprime datos en tabla
 		}
-		var titulos = '<tr>'+'<th>Código</th>'+'<th>Nombre</th>'+'<th>Nota</th>'+'</tr>';
-		document.getElementById('a').innerHTML= titulos+=texto;
+		var titulos = '<tr>'+'<th>Código</th>'+'<th>Nombre</th>'+'<th>Nota</th>'+'</tr>'; //titulos añadidos a la tabla con JS
+		document.getElementById('a').innerHTML= titulos+=texto; //Títulos + todos los datos almacenados en texto
+	}
+	//función que muestra el promedio de las notas
+	function promedioTotal(){
+		document.getElementById('b').innerHTML = 'texto';
+	}
+	
+	function mayorNota(){
+		document.getElementById('c').innerHTML = 'texto';
+	}
+	
+	function menorNota(){
+		document.getElementById('d').innerHTML = 'texto';
 	}
 </script>
 </html>
