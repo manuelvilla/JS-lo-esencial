@@ -69,6 +69,12 @@ table {
     width: 100%;
 }
 
+#b, #b th, #b td{
+	width: 40%!important;
+	margin-left: 30%;
+	text-align: center!important;
+}
+
 th, td {
     text-align: left;
     padding: 8px;

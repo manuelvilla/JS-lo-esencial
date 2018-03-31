@@ -16,23 +16,17 @@
 	</div>
 	<div id="botones" class="tab">
 		<button id="btn1" class="tabcont" onClick="openTab(event, 'tab1'); mostrarTodo(estudiantes)">Mostrar todo</button>
-		<button id="btn2" class="tabcont" onClick="openTab(event, 'tab2'); promedioTotal()">Promedio total</button>
-		<button id="btn3" class="tabcont" onClick="openTab(event, 'tab3'); mayorNota()">Mayor nota</button>
-		<button id="btn4" class="tabcont" onClick="openTab(event, 'tab4'); menorNota()">Menor nota</button>
+		<button id="btn2" class="tabcont" onClick="openTab(event, 'tab2'); promedioTotal(estudiantes)">Promedio total</button>
+		<button id="btn3" class="tabcont" onClick="openTab(event, 'tab3'); mayorNota(estudiantes)">Mayor nota</button>
+		<button id="btn4" class="tabcont" onClick="openTab(event, 'tab4'); menorNota(estudiantes)">Menor nota</button>
 	</div>
 	<div id="tab1" class="tabcontent">
 		<h2>Todos los datos</h2>
-		<table id="a">
-		<tr>
-			<th>Código</th>
-			<th>Nombre</th>
-			<th>Nota</th>
-		</tr>
-		</table>
+		<table id="a"></table>
 	</div>
 	<div id="tab2" class="tabcontent">
 		<h2>Promedio de clase</h2>
-		<p id="b"></p>
+		<table id="b"></table>
 	</div>
 	<div id="tab3" class="tabcontent">
 		<h2>Mayor nota de la clase</h2>
@@ -126,16 +120,40 @@
 		document.getElementById('a').innerHTML= titulos+=texto; //Títulos + todos los datos almacenados en texto
 	}
 	//función que muestra el promedio de las notas
-	function promedioTotal(){
-		document.getElementById('b').innerHTML = 'texto';
+	function promedioTotal(json){
+		var num=0;
+		var i;
+		for (i=0; i<json.estudiantes.length; i++){
+			(num+=json.estudiantes[i].nota)/json.estudiantes.length;
+		}; //ciclo que suma cada nota de estudiante y las divide entre el total de notas.
+		var titulo = '<tr>'+'<th>Total</th>'+'</tr>'; //Titulo de tabla
+		
+		document.getElementById('b').innerHTML = titulo+'<td>'+num.toPrecision(4)+'</td>'; //Titulo de tabla + contenido num con 4 dígitos
 	}
-	
-	function mayorNota(){
-		document.getElementById('c').innerHTML = 'texto';
+	//función que muestra la nota mayor de la clase
+	function mayorNota(json){
+		var i;
+		var max = -Infinity; //-Infinito
+
+		for (i=0; i<json.estudiantes.length; i++){ //ciclo que recorre notas
+			if (json.estudiantes[i].nota > max){ //condicional que saca el valor mayor del ciclo y lo mantiene si no hay un número más grande
+				max = json.estudiantes[i].nota; //max tomará el valor del número mayor
+			}
+		} 
+		
+		document.getElementById('c').innerHTML = max;
 	}
-	
-	function menorNota(){
-		document.getElementById('d').innerHTML = 'texto';
+	//función que muestra la nota mayor de la clase
+	function menorNota(json){
+		var i;
+		var min = Infinity; //Infinito
+		
+		for (i=0; i<json.estudiantes.length; i++){ //ciclo que recorre notas
+			if(json.estudiantes[i].nota < min){ //condicional que saca el valor menor del ciclo y lo mantiene si no hay un número más chico
+				min = json.estudiantes[i].nota; //min tomará el valor del número menor
+			}
+		}
+		document.getElementById('d').innerHTML = min;
 	}
 </script>
 </html>
