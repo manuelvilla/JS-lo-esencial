@@ -69,7 +69,7 @@ table {
     width: 100%;
 }
 
-#b, #b th, #b td{
+#b, #c, #d, #b th, #b td, #c th, #c td, #d th, #d td{
 	width: 40%!important;
 	margin-left: 30%;
 	text-align: center!important;

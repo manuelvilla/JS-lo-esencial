@@ -30,11 +30,11 @@
 	</div>
 	<div id="tab3" class="tabcontent">
 		<h2>Mayor nota de la clase</h2>
-		<p id="c"></p>
+		<table id="c"></table>
 	</div>
 	<div id="tab4" class="tabcontent">
 		<h2>Menor nota de la clase</h2>
-		<p id="d"></p>
+		<table id="d"></table>
 	</div>
 </body>
 <script>
@@ -139,9 +139,10 @@
 			if (json.estudiantes[i].nota > max){ //condicional que saca el valor mayor del ciclo y lo mantiene si no hay un número más grande
 				max = json.estudiantes[i].nota; //max tomará el valor del número mayor
 			}
-		} 
+		};
+		var titulo = '<tr>'+'<th>Más alta</th>'+'</tr>'; //Titulo de tabla
 		
-		document.getElementById('c').innerHTML = max;
+		document.getElementById('c').innerHTML = titulo+'<td>'+max+'</td>';
 	}
 	//función que muestra la nota mayor de la clase
 	function menorNota(json){
@@ -152,8 +153,10 @@
 			if(json.estudiantes[i].nota < min){ //condicional que saca el valor menor del ciclo y lo mantiene si no hay un número más chico
 				min = json.estudiantes[i].nota; //min tomará el valor del número menor
 			}
-		}
-		document.getElementById('d').innerHTML = min;
+		};
+		var titulo = '<tr>'+'<th>Más baja</th>'+'</tr>'; //Titulo de tabla
+		
+		document.getElementById('d').innerHTML = titulo+'<td>'+min+'</td>';
 	}
 </script>
 </html>
