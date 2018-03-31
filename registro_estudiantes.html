@@ -45,7 +45,7 @@
 		for (i=0; i<tabcontent.length; i++){ //Ciclo para ocultar tabs inactivos
 			tabcontent[i].style.display='none';
 		}
-		tabcont=document.getElementsByClassName('tabcont');
+		tabcont = document.getElementsByClassName('tabcont');
 		for (i=0; i<tabcont.length; i++){ //Ciclo para sobreponer la clase active al botón activo
 			tabcont[i].className = tabcont[i].className.replace(' active', '');
 		}
