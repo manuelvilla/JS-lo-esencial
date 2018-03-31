@@ -63,25 +63,25 @@ body{
     border-left: none;
 	min-height: 300px;
 }
-
+/*Diseño de tabla*/
 table {
     border-collapse: collapse;
     width: 100%;
 }
-
+/*Diseño de contenido de tablas dependientes a id's*/
 #b, #c, #d, #b th, #b td, #c th, #c td, #d th, #d td{
 	width: 40%!important;
 	margin-left: 30%;
 	text-align: center!important;
 }
-
+/*Diseño columnas y filas*/
 th, td {
     text-align: left;
     padding: 8px;
 }
-
+/*Colorear cada 2 childs de tabla*/
 tr:nth-child(even){background-color: #f2f2f2}
-
+/*diseño de títulos de tabla*/
 th {
     background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);;
     color: white;
