@@ -15,17 +15,98 @@
 		<img src="img/cabecera.jpg" id="imgcab">
 	</div>
 	<div id="botones" class="tab">
-		<button id="btn1" class="tabcont">Mostrar todo</button>
-		<button id="btn2" class="tabcont">Promedio total</button>
-		<button id="btn3" class="tabcont">Mayor nota</button>
-		<button id="btn4" class="tabcont">Menor nota</button>
+		<button id="btn1" class="tabcont" onClick="openTab(event, 'tab1')">Mostrar todo</button>
+		<button id="btn2" class="tabcont" onClick="openTab(event, 'tab2')">Promedio total</button>
+		<button id="btn3" class="tabcont" onClick="openTab(event, 'tab3')">Mayor nota</button>
+		<button id="btn4" class="tabcont" onClick="openTab(event, 'tab4')">Menor nota</button>
 	</div>
-	<div id="tab1"></div>
-	<div id="tab2"></div>
-	<div id="tab3"></div>
-	<div id="tab4"></div>
+	<div id="tab1" class="tabcontent">
+		<h2>Todos los datos</h2>
+		<p id="a"></p>
+	</div>
+	<div id="tab2" class="tabcontent">
+		<h2>Promedio de clase</h2>
+		<p id="b"></p>
+	</div>
+	<div id="tab3" class="tabcontent">
+		<h2>Mayor nota de la clase</h2>
+		<p id="c"></p>
+	</div>
+	<div id="tab4" class="tabcontent">
+		<h2>Menor nota de la clase</h2>
+		<p id="d"></p>
+	</div>
 </body>
 <script>
+	/*Función openTab funciona para abrir el contenido del color seleccionado y organizar correctamente la información*/
+	function openTab(event, tab){
+		var i, tabcontent, tabcont;
+		tabcontent = document.getElementsByClassName('tabcontent');
+		for (i=0; i<tabcontent.length; i++){ //Ciclo para ocultar tabs inactivos
+			tabcontent[i].style.display='none';
+		}
+		tabcont=document.getElementsByClassName('tabcont');
+		for (i=0; i<tabcont.length; i++){ //Ciclo para sobreponer la clase active al botón activo
+			tabcont[i].className = tabcont[i].className.replace(' active', '');
+		}
+		document.getElementById(tab).style.display='block';
+		event.currentTarget.className += ' active';
+	}
 	
+	document.getElementById('btn1').click(); //Botón activo por defecto
+	
+	/* Estructura de Datos de estudiantes JSON*/
+	var estudiantes = {"estudiantes":[
+		{//Estudiante 1
+			'código':'210715032',
+			'nombre':'Manuel Villaseñor',
+			'nota':9.9
+		},
+		{//Estudiante 2
+			'código':'210714566',
+			'nombre':'Juan Silva',
+			'nota':8.7
+		},
+		{//Estudiante 3
+			'código':'210899032',
+			'nombre':'Anna Gómez',
+			'nota':9.3
+		},
+		{//Estudiante 4
+			'código':'210223344',
+			'nombre':'Mónica Sánchez',
+			'nota':9.4
+		},
+		{//Estudiante 5
+			'código':'210543211',
+			'nombre':'Daniel Torres',
+			'nota':8.1
+		},
+		{//Estudiante 6
+			'código':'213456777',
+			'nombre':'Julián Hernández',
+			'nota':9.9
+		},
+		{//Estudiante 7
+			'código':'211010112',
+			'nombre':'Montserrat Quiroz',
+			'nota':8.3
+		},
+		{//Estudiante 8
+			'código':'210654432',
+			'nombre':'Gabriela Lara',
+			'nota':7.9
+		},
+		{//Estudiante 9
+			'código':'210414100',
+			'nombre':'Luis Fierro',
+			'nota':7.2
+		},
+		{//Estudiante 10
+			'código':'210150000',
+			'nombre':'Pablo Castillo',
+			'nota':7.0
+		}
+	]};
 </script>
 </html>

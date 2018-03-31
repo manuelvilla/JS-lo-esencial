@@ -2,12 +2,12 @@
 body{
 	font-family: 'Roboto';
 }
-
+/*Div cabecera*/
 #cabecera{
 	height: 400px;
 	width: 100%;
 }
-
+/*Imagen de cabecera*/
 #imgcab {
 	width: 100%;
 	position: absolute;
@@ -15,7 +15,7 @@ body{
 	top: -100px;
 	left: 0;
 }
-
+/*Títulos sobre cabecera*/
 #cabecera h1, #cabecera h4{
 	color: white;
 	text-align: center;
@@ -23,7 +23,7 @@ body{
 	z-index: 100;
 	top: 150px;
 }
-
+/*Botones tabs a la izquierda*/
 .tab {
     float: left;
     border: 1px solid #ccc;
@@ -31,7 +31,7 @@ body{
     width: 30%;
     height: 300px;
 }
-
+/*Diseño de botones*/
 .tab button {
     display: block;
     background-color: inherit;
@@ -45,8 +45,21 @@ body{
     transition: 0.3s;
     font-size: 17px;
 }
-
+/*Over de botones*/
 .tab button:hover{
-	background-color: darkcyan;
+	background-color: #ccc;
+}
+/*Botón activo diseño*/
+.tab button.active {
+	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 	color: antiquewhite;
+}
+/*Diseño de contenido desplegable*/
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 66%;
+    border-left: none;
+	min-height: 300px;
 }
