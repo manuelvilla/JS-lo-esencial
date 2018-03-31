@@ -15,14 +15,20 @@
 		<img src="img/cabecera.jpg" id="imgcab">
 	</div>
 	<div id="botones" class="tab">
-		<button id="btn1" class="tabcont" onClick="openTab(event, 'tab1')">Mostrar todo</button>
+		<button id="btn1" class="tabcont" onClick="openTab(event, 'tab1'); mostrarTodo(estudiantes)">Mostrar todo</button>
 		<button id="btn2" class="tabcont" onClick="openTab(event, 'tab2')">Promedio total</button>
 		<button id="btn3" class="tabcont" onClick="openTab(event, 'tab3')">Mayor nota</button>
 		<button id="btn4" class="tabcont" onClick="openTab(event, 'tab4')">Menor nota</button>
 	</div>
 	<div id="tab1" class="tabcontent">
 		<h2>Todos los datos</h2>
-		<p id="a"></p>
+		<table id="a">
+		<tr>
+			<th>Código</th>
+			<th>Nombre</th>
+			<th>Nota</th>
+		</tr>
+		</table>
 	</div>
 	<div id="tab2" class="tabcontent">
 		<h2>Promedio de clase</h2>
@@ -105,8 +111,19 @@
 		{//Estudiante 10
 			'código':'210150000',
 			'nombre':'Pablo Castillo',
-			'nota':7.0
+			'nota':7.1
 		}
 	]};
+	
+	//Función que muestra todo
+	function mostrarTodo(json){
+		var texto='';
+		var i;
+		for (i=0; i<json.estudiantes.length; i++){
+			texto+='<tr>'+'<td>'+json.estudiantes[i].código+'</td>'+'<td>'+json.estudiantes[i].nombre+'</td>'+'<td>'+json.estudiantes[i].nota+'</td>'+'</tr>';
+		}
+		var titulos = '<tr>'+'<th>Código</th>'+'<th>Nombre</th>'+'<th>Nota</th>'+'</tr>';
+		document.getElementById('a').innerHTML= titulos+=texto;
+	}
 </script>
 </html>
